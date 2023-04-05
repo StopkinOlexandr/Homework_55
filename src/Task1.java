@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 //
 // Оценить временную и пространственную сложность алгоритма.
 public class Task1 {
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {  // O(n) - time, O(1) - space
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int result = -1;
     System.out.print("Введите количество чисел: ");
