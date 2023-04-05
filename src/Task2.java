@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 // Задача 2* (не обязательно).
@@ -12,25 +10,25 @@ import java.util.List;
 //
 // Оценить временную и пространственную сложность алгоритма.
 public class Task2 {
-  public static void main(String[] args) throws IOException {  // O(n*log(n)) - time, O(n) - space
-    List<String> list = new ArrayList<>();
+  public static void main(String[] args) throws IOException { // O(n) - time, O(n) - space
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringBuilder result = new StringBuilder();
+    int shortestLength = -1;
     System.out.print("Введите количество слов: ");
     int n = Integer.parseInt(br.readLine());
     System.out.println("Введите " + n + " слов, каждое с новой строки:");
-    for (int i = 0; i < n; ++i) { // O(n) - time, O(n) - space
+    for (int i = 0; i < n; ++i) { // O(n) - time, O(1) - space
       String input = br.readLine();
-      list.add(input);
-    }
-    Collections.sort(list); //O(n*log(n)) - time, O(n) - space
-    System.out.println("Результирующая строка:");
-    for (int i = 0; i < list.size(); ++i) {  // O(n) - time, O(n) - space
-      if (i != 0) {
-        System.out.print(" ");
+      if (shortestLength == -1) {
+        result.append(input);
+        shortestLength = input.length();
+      } else if (input.length() <= shortestLength) {
+        result.insert(0, input + " ");
+      } else {
+        result.append(" " + input);
       }
-      System.out.print(list.get(i));
     }
-    System.out.println();
+    System.out.println("Результирующая строка:");
+    System.out.println(result);
   }
 }
