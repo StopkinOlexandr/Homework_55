@@ -12,7 +12,7 @@ import java.util.List;
 //
 // Оценить временную и пространственную сложность алгоритма.
 public class Task2 {
-  public static void main(String[] args) throws IOException {  // O(n) - time, O(n) - space
+  public static void main(String[] args) throws IOException {  // O(n*log(n)) - time, O(n) - space
     List<String> list = new ArrayList<>();
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringBuilder result = new StringBuilder();
@@ -23,7 +23,7 @@ public class Task2 {
       String input = br.readLine();
       list.add(input);
     }
-    Collections.sort(list);
+    Collections.sort(list); //O(n*log(n)) - time, O(n) - space
     System.out.println("Результирующая строка:");
     for (int i = 0; i < list.size(); ++i) {  // O(n) - time, O(n) - space
       if (i != 0) {
